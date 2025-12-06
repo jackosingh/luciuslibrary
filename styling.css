@@ -29,7 +29,15 @@ body {
 }
 .nav a:hover { 
   background-color: #1abc9c; 
-  transition-duration: 0.5s;
+  transition-duration: 0.1s;
+}
+a{
+  transition-duration: 0.05s;
+}
+a:hover{
+  background-color: #1abc9c; 
+  color: white;
+  transition-duration: 0.1s;
 }
 .content { 
   padding: 20px; 
