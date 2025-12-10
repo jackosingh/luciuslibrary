@@ -56,3 +56,25 @@ a:hover{
 p{
   font-size: 1.2em;
 }
+
+.topic-item{
+  margin: 0px;
+  padding: 0px;
+}
+
+.topic-description{
+  margin-top: 0px;
+}
+
+.topic-item{
+  margin: 0px;
+  padding: 0px;
+}
+
+.topic-description{
+  margin-top: 0px;
+}
+
+.item-container{
+  margin: 60px 0px 25px 120px
+}
