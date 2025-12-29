@@ -30,5 +30,5 @@ for category in sorted(groups.keys()):
 
     out.append("</ul>")
 
-with open("reading.html", "w", encoding="utf-8") as f:
+with open("nav/reading-list.html", "w", encoding="utf-8") as f:
     f.write("\n".join(out))
