@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lucius Library</title>
+</head>
+<body>
+
+<h1>Reading List</h1>
+
+<div id="reading-list">
+  <!-- reading.html gets inserted here -->
+</div>
+
+<script>
+  fetch("reading-list.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("reading-list").innerHTML = html;
+    });
+</script>
+
+</body>
+</html>
