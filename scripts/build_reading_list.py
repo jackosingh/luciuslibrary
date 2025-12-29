@@ -1,19 +1,34 @@
 import csv
+import html
+from collections import defaultdict
 
-rows = []
+groups = defaultdict(list)
+
 with open("data/reading.csv", newline="", encoding="utf-8") as f:
     reader = csv.DictReader(f)
-    rows = list(reader)
+    for r in reader:
+        category = r.get("Category", "Uncategorized").strip() or "Uncategorized"
+        groups[category].append(r)
 
-html = "<ul>\n"
-for r in reversed(rows):
-    html += f"""
-    <li>
-      <a href="{r['URL']}" target="_blank">{r['Title']}</a><br>
-      <small>{r['Description']}</small>
-    </li>
-    """
-html += "</ul>"
+out = []
+
+for category in sorted(groups.keys()):
+    out.append(f"<h2>{html.escape(category)}</h2>")
+    out.append("<ul>")
+
+    for r in reversed(groups[category]):
+        title = html.escape(r["Title"])
+        url = html.escape(r["URL"])
+        desc = html.escape(r["Description"])
+
+        out.append(f"""
+        <li>
+          <a href="{url}" target="_blank">{title}</a><br>
+          <small>{desc}</small>
+        </li>
+        """)
+
+    out.append("</ul>")
 
 with open("reading.html", "w", encoding="utf-8") as f:
-    f.write(html)
+    f.write("\n".join(out))
