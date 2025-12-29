@@ -13,7 +13,7 @@ with open("data/reading.csv", newline="", encoding="utf-8") as f:
 out = []
 
 for category in sorted(groups.keys()):
-    out.append(f"<details>{html.escape(category)}</details>")
+    out.append(f"<h2>{html.escape(category)}</h2>")
     out.append("<ul>")
 
     for r in reversed(groups[category]):
